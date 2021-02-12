@@ -1,3 +1,49 @@
 @import 'tailwindcss/dist/base.css';
 @import 'tailwindcss/dist/components.css';
 @import 'tailwindcss/dist/utilities.css';
+
+#container{
+    display: grid;    
+    grid-template-columns: repeat(2, 1fr);
+    width: 50%;                 
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-areas: "img info info"                        
+                        "img info info";                            
+    align-items: center;
+    justify-items: center;
+    padding: 5px 10px 5px 0px;  
+    border: 1px solid rgba(36, 33, 33, 0.2);
+    border-radius: 15px;    
+    transition: 200ms;
+    overflow: hidden;
+}
+
+.wrapper:hover{
+    transform: scale(1.04);
+}
+
+.info{
+    grid-area: info;
+}
+
+.price{
+    grid-area: price;
+    font-size: .9rem;
+}
+
+.title{
+    font-size: 1rem;
+    grid-area: title;
+    align-self: center;
+    
+}
+
+.img{
+    width: 7rem;
+    grid-area: img;
+}
