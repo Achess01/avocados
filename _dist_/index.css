@@ -1,0 +1,75 @@
+@import "../_snowpack/pkg/tailwindcss/dist/base.css";
+@import "../_snowpack/pkg/tailwindcss/dist/components.css";
+@import "../_snowpack/pkg/tailwindcss/dist/utilities.css";
+
+body{
+    background-color: #B1D8B7;
+}
+
+#container{
+    width: 55%;  
+    min-width: 285px;                   
+    max-width: 670px;
+    display: grid;    
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    margin-top: 20px;
+    gap: 10px;
+    background-color: #94C973;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 6px rgba(36, 33, 33, 0.2);
+    position: relative;    
+}
+
+.wrapper{
+    min-width: 70px;    
+    display: grid;
+    grid-template-areas: "img info info"                        
+                        "img info info";                            
+    align-items: center;
+    justify-items: center;
+    padding: 15px 20px 15px 20px;  
+    border: 1px solid #2f5233;
+    border-radius: 15px;    
+    transition: 200ms ease-in;
+    overflow: hidden;    
+}
+
+.wrapper-clicked{    
+    position: sticky;                
+    align-items: center;
+    justify-content: center;
+    background-color: white;        
+}
+
+.info{
+    grid-area: info;
+}
+
+
+.price{
+    grid-area: price;
+    font-size: .9rem;
+}
+
+.title{
+    font-size: 1rem;
+    grid-area: title;
+    align-self: center;
+    
+}
+
+.img{
+    width: 6rem;
+    min-width: 96px;
+    grid-area: img;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 768px){
+    #container{
+        grid-template-columns: 1fr;
+        width: 60%;
+    }
+}
