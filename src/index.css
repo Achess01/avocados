@@ -19,6 +19,7 @@ body{
     padding: 10px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 6px rgba(36, 33, 33, 0.2);
+    position: relative;    
 }
 
 .wrapper{
@@ -31,17 +32,21 @@ body{
     padding: 15px 20px 15px 20px;  
     border: 1px solid #2f5233;
     border-radius: 15px;    
-    transition: 200ms;
-    overflow: hidden;
+    transition: 200ms ease-in;
+    overflow: hidden;    
 }
 
-.wrapper:hover{
-    transform: scale(1.04);
+.wrapper-clicked{    
+    position: sticky;                
+    align-items: center;
+    justify-content: center;
+    background-color: white;        
 }
 
 .info{
     grid-area: info;
 }
+
 
 .price{
     grid-area: price;

@@ -8,6 +8,8 @@
 
 const baseUrl = "https://platzi-avo.vercel.app"
 const appNode = document.querySelector("#container")
+const overlay = document.querySelector('.overlay')
+
 const formatPrice = price => {
     const newPrice = new window.Intl.NumberFormat('en-EN', {
         style: 'currency',
@@ -29,7 +31,7 @@ const consulta = async ()=>{
         const response = await fetch(`${baseUrl}/api/avo`)
         const responseJson = await response.json()
         const todosLosItems = []
-        responseJson.data.forEach(item => {
+        responseJson.data.forEach(item => {            
             //Crear imagen
             const image = document.createElement('img')
             image.src = `${baseUrl}${item.image}`
@@ -47,9 +49,32 @@ const consulta = async ()=>{
             price.className = 'price'
             const infoContainer = document.createElement('div')
             infoContainer.className = 'info'
-            infoContainer.append(title, price)            
+            infoContainer.append(title, price)   
+            //Info-hidden
+            const infoHidden = document.createElement('div')
+            infoHidden.className = 'info-hidden'
+            const description = document.createElement('p')
+            description.textContent = `${item.attributes.description}.`
+            const shape = document.createElement('p')
+            shape.textContent = `Shape: ${item.attributes.shape}`
+            const taste = document.createElement('p')
+            taste.textContent = `Taste: ${item.attributes.taste}`
+            infoHidden.append(description, shape, taste)
+            //Add infoHidden into infoContainer.            
             const container = document.createElement('article')            
             container.className = 'wrapper'
+            container.addEventListener('click', ()=>{
+                if(container.classList.contains('wrapper-clicked')){                    
+                    container.classList.remove('wrapper-clicked')
+                    infoHidden.classList.remove('active')
+                    infoContainer.removeChild(infoHidden)              
+                }
+                else{
+                    container.classList.add('wrapper-clicked')                      
+                    infoHidden.classList.add('active')   
+                    infoContainer.appendChild(infoHidden)                   
+                }
+            })
             container.append(image, infoContainer)            
             todosLosItems.push(container)
         })        
@@ -59,5 +84,6 @@ const consulta = async ()=>{
         console.error(err)
     }
 }
+
 
 consulta()
