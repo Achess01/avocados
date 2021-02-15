@@ -11,5 +11,25 @@
     "pretty-quick": "^3.1.0",
     "snowpack": "^3.0.11",
     "tailwindcss": "^2.0.2"
-  }
+  },
+  "name": "workshop-1-fetch",
+  "description": "> ✨ Bootstrapped with Create Snowpack App (CSA).",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Achess01/avocados.git"
+  },
+  "keywords": [
+    "avocados",
+    "fetch",
+    "js"
+  ],
+  "author": "Alexander Tzoc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Achess01/avocados/issues"
+  },
+  "homepage": "https://Achess01.github.io/avocados"
 }
