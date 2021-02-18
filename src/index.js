@@ -26,6 +26,33 @@ const formatPrice = price => {
 //         })
 //     })
 
+appNode.addEventListener('click', (event) => {
+    let element = event.target
+    for(let x = 0; x < 4; x++){
+        if (!(element.nodeName === "ARTICLE")){
+            element = element.parentNode            
+        } 
+        else{
+            break;
+        }
+    }
+    
+
+    console.log(event)
+    if (element.nodeName === "ARTICLE"){                       
+        const infoHidden = element.querySelector('.info-hidden')        
+        if (element.classList.contains('wrapper-clicked')) {
+            element.classList.remove('wrapper-clicked')
+            infoHidden.classList.remove('active')            
+        }
+        else {
+            element.classList.add('wrapper-clicked')
+            infoHidden.classList.add('active')            
+        }
+    }
+})
+
+
 const consulta = async ()=>{
     try{
         const response = await fetch(`${baseUrl}/api/avo`)
@@ -60,21 +87,10 @@ const consulta = async ()=>{
             const taste = document.createElement('p')
             taste.textContent = `Taste: ${item.attributes.taste}`
             infoHidden.append(description, shape, taste)
-            //Add infoHidden into infoContainer.            
+            //Add infoHidden into infoContainer.    
+            infoContainer.appendChild(infoHidden)        
             const container = document.createElement('article')            
-            container.className = 'wrapper'
-            container.addEventListener('click', ()=>{
-                if(container.classList.contains('wrapper-clicked')){                    
-                    container.classList.remove('wrapper-clicked')
-                    infoHidden.classList.remove('active')
-                    infoContainer.removeChild(infoHidden)              
-                }
-                else{
-                    container.classList.add('wrapper-clicked')                      
-                    infoHidden.classList.add('active')   
-                    infoContainer.appendChild(infoHidden)                   
-                }
-            })
+            container.className = 'wrapper'            
             container.append(image, infoContainer)            
             todosLosItems.push(container)
         })        
