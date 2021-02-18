@@ -35,7 +35,13 @@ body{
     transition: 200ms ease-in;
     overflow: hidden;    
 }
+.info-hidden{
+    display: none;    
+}
 
+.info-hidden.active{
+    display: block;
+}
 .wrapper-clicked{    
     position: sticky;                
     align-items: center;
